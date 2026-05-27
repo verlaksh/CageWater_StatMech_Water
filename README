@@ -1,0 +1,15 @@
+Copyright (c) 2026 Lakshmanji Verma
+
+This project contains the source files, plotting scripts, and Experimental data used for 
+the statistical mechanical water model: Lakshmanji Verma and Ken A. Dill, Statistical mechanical theory of liquid water, JCTC, 2025
+
+To run script for calculating bulk properties of water as described in the article above 
+To run : bulk_water_script.py 
+Simply run: python bulk_water_script.py  
+It requires "water_functions_3D.py" and "default_parameters.py" to be in the same folder
+
+analysis.py analyzes isobars to estimate  phase transition and LLCP 
+
+Plotting scripts will require Experimental data 
+
+

@@ -50,14 +50,14 @@ ax.tick_params(axis='both',direction = 'in',bottom=False, top=False, left=False,
 ax1 = fig.add_axes([0.508, 0.69, 0.485, 0.305], xticklabels=[])#, ylim=(0, 0.6))
 ax2 = fig.add_axes([0.18, 0.12, 0.813, 0.505])#, xticklabels=[])#, ylim=(0, 0.6))
 
-model = np.loadtxt('./P_atm/real_units', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
 #Volume
 num = range(0,121)
 num = np.array(num)*0.01
 xdat = np.zeros(len(num))
 
 exp = np.loadtxt('density', comments='#')
-tip3p=np.loadtxt('./Model_data/tip3p_rho', comments='#')
+tip3p=np.loadtxt('./MD_Model_data/tip3p_rho', comments='#')
 ax1.plot(exp[::2,0],1/exp[::2,2],color='darkorange',linestyle='', marker='^', label=r'$\mathrm{Exp.}$',fillstyle='none',mew = 1.5)
 ax1.plot(model[:,1],1000/model[:,4] ,color='k',linestyle='-',label=r'$\mathrm{Theory}$' , linewidth="2")
 ax1.plot(xdat,num,color='k',linestyle=':',label=r'$\mathrm{0^oC}$' )
@@ -71,7 +71,7 @@ ax1.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 ax1.legend( frameon=False, fontsize = "9", ncol =1, loc = "center", bbox_to_anchor=(-0.55, 0.7))
 
 #micro
-model = np.loadtxt('./P_atm/vol', comments='#')
+model = np.loadtxt('./Atm_P/vol', comments='#')
 ax2.plot(model[:,1],model[:,5],color='k',linestyle='-',label=r'$\mathrm{Total}$' , linewidth="2")
 ax2.plot(model[:,1],model[:,6], linewidth="2",color=Reds[10],linestyle='-',label=r'$\mathrm{pHB}$' )
 ax2.plot(model[:,1],model[:,7], linewidth="2",color=Reds[8],linestyle='-',label=r'$\mathrm{Cage}$' )
@@ -100,14 +100,14 @@ ax.tick_params(axis='both',direction = 'in',bottom=False, top=False, left=False,
 ax1 = fig.add_axes([0.19, 0.55, 0.803, 0.445], xticklabels=[])#, ylim=(0, 0.6))
 ax2 = fig.add_axes([0.19, 0.11, 0.803, 0.435])#, xticklabels=[])#, ylim=(0, 0.6))
 
-model = np.loadtxt('./P_atm/real_units', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
 #Volume
 num = range(0,121)
 num = np.array(num)*0.01
 xdat = np.zeros(len(num))+4
 
 exp = np.loadtxt('density', comments='#')
-tip4p=np.loadtxt('./Model_data/tip4p2005_rho', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_rho', comments='#')
 mbpol=np.loadtxt('./Expt_Data/Palos_2024_JCTC_MBpol', comments='#')
 mbdnn=np.loadtxt('./Expt_Data/Palos_2024_JCTC_DNN', comments='#')
 
@@ -126,7 +126,7 @@ ax1.set_xticks(np.arange(-50, 100, 50))
 ax1.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 ax1.legend( frameon=False, fontsize = "10", ncol =1, labelspacing=0.05, loc = "center", bbox_to_anchor=(0.55, 0.3))
 
-model = np.loadtxt('./P_atm/population_real_units', comments='#')
+model = np.loadtxt('./Atm_P/population_real_units', comments='#')
 
 ax2.plot(model[:,1],model[:,4],color=Reds[10],linestyle='-',linewidth="2",label=r'$\mathrm{Cage}$' )
 ax2.plot(model[:,1],model[:,3],color=Reds[8],linestyle='-',linewidth="2",label=r'$\mathrm{pHB}$' )
@@ -162,8 +162,8 @@ num = range(-200,200)
 num = np.array(num)
 xdat = np.zeros(len(num))+4
 
-model = np.loadtxt('./P_atm/real_units', comments='#')
-tip4p=np.loadtxt('./Model_data/tip4p2005_alp', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_alp', comments='#')
 reddy = np.loadtxt('./Expt_Data/Reddy_JCP_2016', comments='#')
 ax1.plot(exp[::2,0],exp[::2,3]*0.001,color='darkorange',linestyle='', marker='^', label=r'$\mathrm{Exp.}$',fillstyle='none',mew = 1.5)
 ax1.plot(tip4p[:,0]-273.15,tip4p[:,1]*0.01,color='green',linestyle='', marker='o', label=r'$\mathrm{TIP4P/2005}$',fillstyle='none',mew = 1.5)
@@ -181,7 +181,7 @@ ax1.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 ax1.legend( frameon=False, fontsize = "10", ncol =1, labelspacing=0.05)#, loc = "center", bbox_to_anchor=(-0.55, 0.7))
 
 #micro
-model = np.loadtxt('./P_atm/alpha', comments='#')
+model = np.loadtxt('./Atm_P/alpha', comments='#')
 
 ax2.plot(model[:,1],model[:,6]*10**3, linewidth="2",color=Reds[10],linestyle='-',label=r'$\mathrm{{Cage}}$' )
 ax2.plot(model[:,1],model[:,5]*10**3, linewidth="2",color=Reds[8],linestyle='-',label=r'$\mathrm{{pHB}}$' )
@@ -223,8 +223,8 @@ num = range(-60,150)
 num = 0.1* np.array(num)
 xdat = np.zeros(len(num))
 
-model = np.loadtxt('./P_atm/real_units', comments='#')
-tip4p=np.loadtxt('./Model_data/tip4p2005_kap', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_kap', comments='#')
 mbpol=np.loadtxt('./Expt_Data/Palos_2024_JCTC_MBpol', comments='#')
 mbdnn=np.loadtxt('./Expt_Data/Palos_2024_JCTC_DNN', comments='#')
 kim = np.loadtxt('./Expt_Data/Kim_Science_2017', comments='#')
@@ -249,7 +249,7 @@ num = range(-60,150)
 num = np.array(num)
 xdat = np.zeros(len(num))
 
-model = np.loadtxt('./P_atm/kappa', comments='#')
+model = np.loadtxt('./Atm_P/kappa', comments='#')
 ax2.plot(model[:,1],model[:,6]*10**5, linewidth="2",color=Reds[10],linestyle='-',label=r'$\mathrm{{Cage}}$' )
 ax2.plot(model[:,1],model[:,5]*10**5, linewidth="2",color=Reds[8],linestyle='-',label=r'$\mathrm{{pHB}}$' )
 ax2.plot(model[:,1],model[:,7]*10**5, linewidth="2",color=Reds[5],linestyle='-',label=r'$\mathrm{{vdW}}$' )
@@ -291,8 +291,8 @@ num = range(-500,500)
 num = np.array(num)
 xdat = np.zeros(len(num))+4
 mbpol = np.loadtxt('./Expt_Data/Gartner_JPCL_2022', comments='#')
-model = np.loadtxt('./P_atm/real_units', comments='#')
-tip4p=np.loadtxt('./Model_data/tip4p2005_cp', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_cp', comments='#')
 exp = np.loadtxt('exp_cp', comments='#')
 pathak= np.loadtxt('./Expt_Data/Pathak_PNAS_2021', comments='#')
 ax1.plot(exp[:,0],exp[:,1]/18,color='darkorange',linestyle='', marker='^', label=r'$\mathrm{Exp.}$',fillstyle='none',mew = 1.5)
@@ -311,7 +311,7 @@ ax1.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 ax1.legend( frameon=False, fontsize = "10", ncol =1, labelspacing=0.05)#, loc = "upper right")#, bbox_to_anchor=(0.6, 0.7))
 
 #micro
-model = np.loadtxt('./P_atm/cp', comments='#')
+model = np.loadtxt('./Atm_P/cp', comments='#')
 ax2.plot(model[:,1],model[:,7]/18, linewidth="2", color=Reds[10],linestyle='-',label=r'$\mathrm{Cage}$' )
 ax2.plot(model[:,1],model[:,6]/18, linewidth="2", color=Reds[8],linestyle='-',label=r'$\mathrm{pHB}$' )
 ax2.plot(model[:,1],model[:,8]/18, linewidth="2", color=Reds[5],linestyle='-',label=r'$\mathrm{vdW}$' )
@@ -351,7 +351,7 @@ ax4 = fig.add_axes([0.60, 0.560, 0.395, 0.43], xticklabels=[])#, ylim=(0, 0.6))
 ax5 = fig.add_axes([0.60, 0.120, 0.395, 0.43])#, xticklabels=[])#, ylim=(0, 0.6))
 
 
-model = np.loadtxt('./P_atm/real_units', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
 exp = np.loadtxt('exp_cp', comments='#')
 ax1.plot(exp[:,0],exp[:,1]/18,color='darkorange',linestyle='', marker='^', label=r'$\mathrm{Bulk}$',fillstyle='none',mew = 1.5)
 
@@ -390,7 +390,7 @@ ax2.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 
 exp = np.loadtxt('density', comments='#')
 cnf = np.loadtxt('Expt_Data/confined_alpha', comments='#')
-model = np.loadtxt('./P_atm/real_units', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
 ax3.plot(exp[::2,0],exp[::2,3]*0.001,color='darkorange',linestyle='', marker='^', label=r'$\mathrm{Bulk\ Exp.}$',fillstyle='none',mew = 1.5)
 ax3.plot(cnf[:16,0]-273.15,cnf[:16,1],color='darkturquoise',linestyle='', marker='o', label=r'$\mathrm{Conf.\ Exp.}$',fillstyle='none',mew = 1.5)
 ax3.plot(model[:,1],model[:,6]*10**3,color='k',linestyle='-',label=r'$\mathrm{Theory}$' , linewidth="2.5")
@@ -406,7 +406,7 @@ ax3.set_xticks(np.arange(-50, 50, 25))
 ax3.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 ax3.legend( frameon=False, fontsize = "9", ncol =1, labelspacing=0.01, loc = "center", bbox_to_anchor=(0.75, 0.25))
 
-model = np.loadtxt('./P_atm/population_real_units', comments='#')
+model = np.loadtxt('./Atm_P/population_real_units', comments='#')
 exp = np.loadtxt('./Expt_Data_plot/Xu_NatPhys_2009', comments='#')
 ldl = np.loadtxt('./Expt_Data/Tyburski_MolPhys_2024', comments='#')
 
@@ -428,7 +428,7 @@ ax4.tick_params(axis='both',direction = 'in', which= 'both',bottom=1, top=1, lef
 ax4.legend( frameon=False, fontsize = "9", ncol =1, loc = "center", bbox_to_anchor=(0.77, 0.5),labelspacing=0.05,handlelength=1)
 
 
-model = np.loadtxt('./P_atm/population_real_units', comments='#')
+model = np.loadtxt('./Atm_P/population_real_units', comments='#')
 R = 1.380649*6.022
 HDA = log(model[:,3])
 LDA = log(model[:,4]+model[:,5])
@@ -454,7 +454,7 @@ plt.close()
 fig = plt.figure(figsize=(4,3))
 ax =fig.add_axes([0.16, 0.14, 0.835, 0.845]) #, frameon=False, xticklabels=[],yticklabels=[])
 
-model = np.loadtxt('./P_atm/population_real_units', comments='#')
+model = np.loadtxt('./Atm_P/population_real_units', comments='#')
 exp = np.loadtxt('./Expt_Data_plot/Xu_NatPhys_2009', comments='#')
 
 ax.plot(model[:,1],model[:,4]+model[:,5],color='b',linestyle='-',linewidth="2")#,label=r'$\mathrm{Theory\ LDL}$' )
@@ -482,7 +482,7 @@ plt.close()
 fig = plt.figure(figsize=(4,3))
 ax =fig.add_axes([0.16, 0.15, 0.835, 0.845]) #, frameon=False, xticklabels=[],yticklabels=[])
 
-model = np.loadtxt('./P_atm/population_real_units', comments='#')
+model = np.loadtxt('./Atm_P/population_real_units', comments='#')
 R = 1.380649*6.022
 
 HDA = log(model[:,3])

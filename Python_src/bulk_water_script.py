@@ -56,14 +56,13 @@ flog.write ('\nElectrostatics Parameters:\n')
 
 
 flog.write ('\n\nRun parameters:\n')
-#P = [4000, 3000, 2900, 2800, 2700, 2600, 2500, 2400, 2300, 2200, 2100, 2000, 1800, 1700, 1600, 1500, 1400, 1200, 1000, 800, 600, 500, 400, 220, 200, 150, 100, 50, 20, 10, 1,  -200, -400, -600, -800, -1000]
-#P = [1]
-P = [4000, 3800, 3600, 3400, 3200, 3000, 2900, 2800, 2700, 2600, 2500, 2400, 2300, 2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1200, 1000, 800, 600, 500, 400, 220, 200, 150, 100, 50, 20, 10, 1,  -200, -400, -600, -800, -1000]
+P = [1]
+#P = [4000, 3800, 3600, 3400, 3200, 3000, 2900, 2800, 2700, 2600, 2500, 2400, 2300, 2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1200, 1000, 800, 600, 500, 400, 220, 200, 150, 100, 50, 20, 10, 1,  -200, -400, -600, -800, -1000]
 
 
 for p in P:
-   fvarT= open("./Press/real_units_%sbar"%(p), 'w')
-   fpopT= open("./Press/population_real_units_%sbar"%(p), 'w')
+   fvarT= open("../Press/real_units_%sbar"%(p), 'w')
+   fpopT= open("../Press/population_real_units_%sbar"%(p), 'w')
    fvarT.write('%10s %10s %10s %10s %10s %10s %10s %10s %10s %10s\n'%("#sigma_s","Temp(C)","Press(Mpa)","p_meanfield","density (kg/m^3)","kappa","alpha","Cp(J/molK)","Cv(J/molK)","mu(J/mol)"))
    fpopT.write('%10s %10s %10s %10s %11s %10s %10s %10s %10s \n' %("#solute size.","Temp(C)","Press(Mpa)","fHB" ,"fS","fLJ","fO","xHB","nHB"))
    #for p in range(1,601):
@@ -72,24 +71,24 @@ for p in P:
    elif p == 1:
       p_0 = (p+0.01325)*(10**5)*P_factor
       # Creating files to save data
-      f12    = open("./P_atm/qh_qb",'w')
-      f13    = open("./P_atm/f_HB_S_LJ_O",'w')
-      f14    = open("./P_atm/delta_HB_S_LJ_O",'w')
-      f1     = open("./P_atm/molv_kappa", 'w')
-      f2     = open("./P_atm/G_H_S_Cp", 'w')
-      f3     = open("./P_atm/avg_nHB", 'w')
-      fene   = open("./P_atm/ene_contri", 'w')
-      ftrans = open("./P_atm/trans_contri", 'w')
-      fpv    = open("./P_atm/ph_vh", 'w')
-      fcp    = open("./P_atm/cp", 'w')
-      fdudv  = open("./P_atm/dudv", 'w')
-      fcv    = open("./P_atm/cv", 'w')
-      fka    = open("./P_atm/kappa", 'w')
-      fal    = open("./P_atm/alpha", 'w')
-      fvar   = open("./P_atm/real_units", 'w')
-      fpop   = open("./P_atm/population_real_units", 'w')
-      fv     = open("./P_atm/vol", 'w')
-      favgv  = open("./P_atm/avgv", 'w')
+      f12    = open("../Atm_P/qh_qb",'w')
+      f13    = open("../Atm_P/f_HB_S_LJ_O",'w')
+      f14    = open("../Atm_P/delta_HB_S_LJ_O",'w')
+      f1     = open("../Atm_P/molv_kappa", 'w')
+      f2     = open("../Atm_P/G_H_S_Cp", 'w')
+      f3     = open("../Atm_P/avg_nHB", 'w')
+      fene   = open("../Atm_P/ene_contri", 'w')
+      ftrans = open("../Atm_P/trans_contri", 'w')
+      fpv    = open("../Atm_P/ph_vh", 'w')
+      fcp    = open("../Atm_P/cp", 'w')
+      fdudv  = open("../Atm_P/dudv", 'w')
+      fcv    = open("../Atm_P/cv", 'w')
+      fka    = open("../Atm_P/kappa", 'w')
+      fal    = open("../Atm_P/alpha", 'w')
+      fvar   = open("../Atm_P/real_units", 'w')
+      fpop   = open("../Atm_P/population_real_units", 'w')
+      fv     = open("../Atm_P/vol", 'w')
+      favgv  = open("../Atm_P/avgv", 'w')
 
       f1.write( '%10s %10s %15s %15s \n'  %("#solute size.","Temp","Molar Volume","kappa"))
       f2.write( '%10s %10s %10s %10s %10s %10s %10s\n' %("#solute size.","Temp(C)","P(MPa)", "G", "H", "TdS ", "Cp"))
@@ -111,13 +110,7 @@ for p in P:
     
    else:
       p_0 = p*(10**5)*P_factor
-   if p > 0: 
-      Tlim = 400
-   elif 0> p > -600:
-      Tlim = 350
-   else:
-      Tlim = 350
-
+   
    ## Default loop for quick calculaitons 
    for t in range(100,400):
       print( "Temp=%s Press=%sMPa"%(t,0.1*p))

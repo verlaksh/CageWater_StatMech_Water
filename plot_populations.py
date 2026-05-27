@@ -43,7 +43,7 @@ factor = 17180.0/8.314
 
 #with tip4p
 
-model = np.loadtxt('./P_atm/real_units', comments='#')
+model = np.loadtxt('./Atm_P/real_units', comments='#')
 
 fig = plt.figure(figsize=(3.5,8))
 
@@ -56,8 +56,8 @@ ax5 = fig.add_axes([0.22, 0.070, 0.775, 0.207])#, ylim=(0, 0.6))
 
 exp = np.loadtxt('density', comments='#')
 #dens=697.15223/model[:,4]
-tip4p=np.loadtxt('./Model_data/tip4p2005_rho', comments='#')
-tip3p=np.loadtxt('./Model_data/tip3p_rho', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_rho', comments='#')
+tip3p=np.loadtxt('./MD_Model_data/tip3p_rho', comments='#')
 
 ax1.plot(exp[::5,0],exp[::5,2],color='darkorange',linestyle='', marker='^', label=r'$\mathrm{Exp.}$',fillstyle='none')
 ax1.plot(tip4p[:,0]-273.15,tip4p[:,1],color='green',linestyle='', marker='o', label=r'$\mathrm{TIP4P/2005}$',fillstyle='none')
@@ -71,8 +71,8 @@ ax1.set_xlim([-60, 110])
 ax1.set_xticks(np.arange(-50, 110, 50))
 ax1.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 
-tip4p=np.loadtxt('./Model_data/tip4p2005_alp', comments='#')
-tip3p=np.loadtxt('./Model_data/tip3p_alp', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_alp', comments='#')
+tip3p=np.loadtxt('./MD_Model_data/tip3p_alp', comments='#')
 ax2.plot(exp[::5,0],exp[::5,3]*0.001,color='darkorange',linestyle='', marker='^', label=r'$\mathrm{Exp.}$',fillstyle='none')
 ax2.plot(tip4p[:,0]-273.15,tip4p[:,1]*0.01,color='green',linestyle='', marker='o', label=r'$\mathrm{TIP4P/2005}$',fillstyle='none')
 ax2.plot(tip3p[:,0],tip3p[:,1]*0.01,color='blue',linestyle='', marker='o', label=r'$\mathrm{Tip3p}$',fillstyle='none')
@@ -85,8 +85,8 @@ ax2.set_xlim([-60, 110])
 ax2.set_xticks(np.arange(-50, 110, 50))
 ax2.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 
-tip4p=np.loadtxt('./Model_data/tip4p2005_kap', comments='#')
-tip3p=np.loadtxt('./Model_data/tip3p_kap', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_kap', comments='#')
+tip3p=np.loadtxt('./MD_Model_data/tip3p_kap', comments='#')
 kim = np.loadtxt('./Expt_Data/Kim_Science_2017', comments='#')
 
 ax3.plot(kim[:,0]-273.15,kim[:,1]*0.1,color='darkorange',linestyle='', marker='^',fillstyle='none',mew = 1.5)
@@ -103,8 +103,8 @@ ax3.set_xticks(np.arange(-50, 110, 50))
 ax3.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 
 
-tip4p=np.loadtxt('./Model_data/tip4p2005_cp', comments='#')
-tip3p=np.loadtxt('./Model_data/tip3p_cp', comments='#')
+tip4p=np.loadtxt('./MD_Model_data/tip4p2005_cp', comments='#')
+tip3p=np.loadtxt('./MD_Model_data/tip3p_cp', comments='#')
 exp = np.loadtxt('exp_cp', comments='#')
 pathak= np.loadtxt('./Expt_Data/Pathak_PNAS_2021', comments='#')
 
@@ -123,7 +123,7 @@ ax4.set_xticks(np.arange(-50, 110, 50))
 ax4.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 ax4.legend(frameon=False, ncol=2, loc="center", bbox_to_anchor=(0.55, 0.8), fontsize = "9", handlelength=1.5)
 
-model = np.loadtxt('./P_atm/population_real_units', comments='#')
+model = np.loadtxt('./Atm_P/population_real_units', comments='#')
 ax5.plot(model[:,1],model[:,4],color=Plasma[0],linestyle='-',label=r'$\mathrm{Cage}$' )
 ax5.plot(model[:,1],model[:,3],color=Plasma[3],linestyle='-',label=r'$\mathrm{pHB}$' )
 ax5.plot(model[:,1],model[:,5],color=Plasma[5],linestyle='-',label=r'$\mathrm{vdW}$' )
@@ -205,7 +205,7 @@ ax3.set_xlim([-200, 100])
 ax3.set_xticks(np.arange(-200, 100, 100))
 ax3.tick_params(axis='both',direction = 'in',bottom=1, top=1, left=1, right=1)
 
-#tip4p=np.loadtxt('./Model_data/nHB_tip4p2005_100MPa', comments='#')
+#tip4p=np.loadtxt('./MD_Model_data/nHB_tip4p2005_100MPa', comments='#')
 ax4.set_ylabel(r'$\mathrm{\mathbf{n_{HB}}}$',{'fontsize':MEDIUM_SIZE})
 ax4.set_xlabel(r'$\mathrm{\mathbf{T}\/[{^\circ} C]}$',{'fontsize':MEDIUM_SIZE})
 ax4.set_ylim([3, 4])

@@ -48,8 +48,8 @@ ax1 = fig.add_axes([0.21, 0.700, 0.785, 0.295], xticklabels=[])#, ylim=(0, 0.6))
 ax2 = fig.add_axes([0.21, 0.400, 0.785, 0.295], xticklabels=[])#, ylim=(0, 0.6))
 ax3 = fig.add_axes([0.21, 0.100, 0.785, 0.295])#, xticklabels=[])#, ylim=(0, 0.6))
 
-model = np.loadtxt('./P_atm/ene_contri', comments='#')
-trans = np.loadtxt('./P_atm/trans_contri', comments='#')
+model = np.loadtxt('./Atm_P/ene_contri', comments='#')
+trans = np.loadtxt('./Atm_P/trans_contri', comments='#')
 
 #Ensemble
 ax1.plot(model[:,1],(model[:,6]-trans[:,6]-6*(model[:,1]+273.15)*8.3145/1000.)/2.,linewidth="2.5",color="purple", label=r'$\mathrm{\langle u_{pair} \rangle}$' )

@@ -13,4 +13,7 @@ Atm_P contains atmospheric pressure and Press contains all other isobars
 analysis.py analyzes isobars from Press that generates PT_data and LLCP.
 For accurate LLPT and LLCP, fine temperatue (in order of 0.1) and pressure is recommended 
 
-Plotting scripts will require Experimental data, MD_Model_data, and there data 
+Plotting scripts will require Experimental data, MD_Model_data, and there data
+
+If you use this in your work please cite 
+Lakshmanji Verma and Ken A. Dill, Statistical mechanical theory of liquid water, JCTC, 2025, https://doi.org/10.1021/acs.jctc.5c00949 
